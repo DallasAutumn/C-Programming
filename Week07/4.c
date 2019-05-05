@@ -61,6 +61,7 @@ void Retry()
     char retry;
 
     printf("Would you like to play again (y/n)?\n");
+    rewind(stdin);
     scanf("%c", &retry);
 
     if (retry == 'y')

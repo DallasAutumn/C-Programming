@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+        <title>第九次-17377191-段秋阳</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+        <link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
+        <style>
+.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
+</style>
+        <style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        
+        <script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+    </head>
+    <body>
+        <h1 id="%E7%AC%AC%E4%B9%9D%E6%AC%A1-17377191-%E6%AE%B5%E7%A7%8B%E9%98%B3">第九次-17377191-段秋阳</h1>
+<h2 id="1-%E5%B0%9D%E8%AF%95%E7%94%A8%E9%80%92%E5%BD%92%E5%80%92%E5%BA%8F%E8%BE%93%E5%87%BA%E4%B8%80%E4%B8%AA%E6%AD%A3%E6%95%B4%E6%95%B0">1. 尝试用递归倒序输出一个正整数</h2>
+<pre><code class="language-c"><div><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdlib.h&gt;</span></span>
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">recursiveReverse</span><span class="hljs-params">(<span class="hljs-keyword">int</span>)</span></span>;
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
+</span>{
+    recursiveReverse(<span class="hljs-number">1234</span>);
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">recursiveReverse</span><span class="hljs-params">(<span class="hljs-keyword">int</span> num)</span>
+</span>{
+    <span class="hljs-keyword">if</span> (num &gt; <span class="hljs-number">0</span>)
+    {
+        <span class="hljs-built_in">printf</span>(<span class="hljs-string">"%d"</span>, num % <span class="hljs-number">10</span>);
+        recursiveReverse(num / <span class="hljs-number">10</span>);
+    }
+}
+</div></code></pre>
+<p><img src="file:////run/media/dallasautumn/7EE29D11E29CCF31/lovestudy/studybetter/C语言程序设计/C-Programming/Week09/1.png" alt="avatar"></p>
+<h2 id="2-p2851%E5%B0%9D%E8%AF%95%E6%AF%94%E8%BE%83%E4%B8%80%E4%B8%8B%E5%BE%AA%E7%8E%AF%E5%92%8C%E9%80%92%E5%BD%92%E7%9A%84%E6%95%88%E7%8E%87">2. P285，1（尝试比较一下循环和递归的效率）</h2>
+<pre><code class="language-c"><div><span class="hljs-comment">//Fibonacci P285:1</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">fib</span><span class="hljs-params">(<span class="hljs-keyword">int</span> num)</span></span>;
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
+</span>{
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"%d"</span>, fib(<span class="hljs-number">8</span>));
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">fib</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n)</span>
+</span>{
+    <span class="hljs-keyword">if</span> (n == <span class="hljs-number">1</span>)
+        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (n == <span class="hljs-number">2</span>)
+        <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
+    <span class="hljs-keyword">else</span>
+        <span class="hljs-keyword">return</span> fib(n - <span class="hljs-number">1</span>) + fib(n - <span class="hljs-number">2</span>);
+}
+</div></code></pre>
+<p><img src="file:////run/media/dallasautumn/7EE29D11E29CCF31/lovestudy/studybetter/C语言程序设计/C-Programming/Week09/2.png" alt="avatar"></p>
+<h2 id="3-p2853">3. P285，3</h2>
+<pre><code class="language-c"><div><span class="hljs-comment">//P285:3</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">arithmeticSequence</span><span class="hljs-params">(<span class="hljs-keyword">int</span> firstItem, <span class="hljs-keyword">int</span> commonDifference, <span class="hljs-keyword">int</span> itemIndex)</span></span>;
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
+</span>{
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"%d"</span>, arithmeticSequence(<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">10</span>));
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">arithmeticSequence</span><span class="hljs-params">(<span class="hljs-keyword">int</span> a, <span class="hljs-keyword">int</span> d, <span class="hljs-keyword">int</span> n)</span>
+</span>{
+    <span class="hljs-keyword">if</span> (n == <span class="hljs-number">1</span>)
+        <span class="hljs-keyword">return</span> a;
+    <span class="hljs-keyword">else</span>
+        <span class="hljs-keyword">return</span> d + arithmeticSequence(a, d, n - <span class="hljs-number">1</span>);
+}
+</div></code></pre>
+<p><img src="file:////run/media/dallasautumn/7EE29D11E29CCF31/lovestudy/studybetter/C语言程序设计/C-Programming/Week09/3.png" alt="avatar"></p>
+<h2 id="4-p2866">4. P286，6</h2>
+<pre><code class="language-c"><div><span class="hljs-comment">//P286:6</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">gcd</span><span class="hljs-params">(<span class="hljs-keyword">int</span> num1, <span class="hljs-keyword">int</span> num2)</span></span>;
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">max</span><span class="hljs-params">(<span class="hljs-keyword">int</span> num1, <span class="hljs-keyword">int</span> num2)</span></span>;
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">min</span><span class="hljs-params">(<span class="hljs-keyword">int</span> num1, <span class="hljs-keyword">int</span> num2)</span></span>;
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
+</span>{
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"%d"</span>, gcd(<span class="hljs-number">320</span>, <span class="hljs-number">116</span>));
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">gcd</span><span class="hljs-params">(<span class="hljs-keyword">int</span> a, <span class="hljs-keyword">int</span> b)</span>
+</span>{
+    <span class="hljs-keyword">if</span> (a % b == <span class="hljs-number">0</span>)
+        <span class="hljs-keyword">return</span> b;
+    <span class="hljs-keyword">else</span>
+        <span class="hljs-keyword">return</span> gcd(b, a % b);
+}
+</div></code></pre>
+<p><img src="file:////run/media/dallasautumn/7EE29D11E29CCF31/lovestudy/studybetter/C语言程序设计/C-Programming/Week09/4.png" alt="avatar"></p>
+<ol start="5">
+<li>P286，7(题目表述奇怪，本意就是实现两个函数，一个递归，一个循环，来进行回文数字的判读)</li>
+</ol>
+<pre><code class="language-c"><div><span class="hljs-comment">//P286:7</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdlib.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;string.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> M 20</span>
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">numpal</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n)</span></span>;
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">getDigit</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n, <span class="hljs-keyword">int</span> i)</span></span>;
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
+</span>{
+    <span class="hljs-keyword">int</span> num;
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">5</span>; i++)
+    {
+        <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Plz enter a number:\n"</span>);
+        <span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%d"</span>, &amp;num);
+        <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Input %d, result:%d\n"</span>, num, numpal(num));
+    }
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">numpal</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n)</span>
+</span>{
+    <span class="hljs-keyword">char</span> str[M];
+    <span class="hljs-built_in">sprintf</span>(str, <span class="hljs-string">"%d"</span>, n);
+    <span class="hljs-keyword">int</span> len = <span class="hljs-built_in">strlen</span>(str);
+
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= len / <span class="hljs-number">2</span>; i++)
+        <span class="hljs-keyword">if</span> (getDigit(n, i) == getDigit(n, len + i - <span class="hljs-number">1</span>))
+            <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">getDigit</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n, <span class="hljs-keyword">int</span> i)</span>
+</span>{
+    <span class="hljs-keyword">if</span> (i == <span class="hljs-number">1</span>)
+        <span class="hljs-keyword">return</span> n % <span class="hljs-number">10</span>;
+    <span class="hljs-keyword">else</span>
+        <span class="hljs-keyword">return</span> getDigit(n / <span class="hljs-number">10</span>, i - <span class="hljs-number">1</span>);
+}
+</div></code></pre>
+<p><img src="file:////run/media/dallasautumn/7EE29D11E29CCF31/lovestudy/studybetter/C语言程序设计/C-Programming/Week09/5.png" alt="avatar"></p>
+<ol start="6">
+<li>《现代方法》(第2版）p153, 7</li>
+</ol>
+<pre><code class="language-c"><div><span class="hljs-comment">//《现代方法》P153：7</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdlib.h&gt;</span></span>
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">power</span><span class="hljs-params">(<span class="hljs-keyword">int</span> x, <span class="hljs-keyword">int</span> n)</span></span>;
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
+</span>{
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"%d"</span>, power(<span class="hljs-number">2</span>, <span class="hljs-number">9</span>));
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">power</span><span class="hljs-params">(<span class="hljs-keyword">int</span> x, <span class="hljs-keyword">int</span> n)</span>
+</span>{
+    <span class="hljs-keyword">if</span> (n == <span class="hljs-number">0</span>)
+        <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
+    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (n % <span class="hljs-number">2</span> == <span class="hljs-number">0</span>)
+        <span class="hljs-keyword">return</span> power(x, n / <span class="hljs-number">2</span>) * power(x, n / <span class="hljs-number">2</span>);
+    <span class="hljs-keyword">else</span>
+        <span class="hljs-keyword">return</span> x * power(x, n - <span class="hljs-number">1</span>);
+}
+</div></code></pre>
+<p><img src="file:////run/media/dallasautumn/7EE29D11E29CCF31/lovestudy/studybetter/C语言程序设计/C-Programming/Week09/6.png" alt="avatar"></p>
+
+    </body>
+    </html>
