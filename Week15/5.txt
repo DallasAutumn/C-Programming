@@ -1,0 +1,1 @@
+Microsoft has released Windows Subsystem for Linux 2.0
